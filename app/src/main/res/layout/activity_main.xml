@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity">
+
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load from file"
+            android:id="@+id/btnLoad" android:layout_gravity="center"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/txtGpsFixes" android:layout_gravity="center_horizontal" android:layout_weight="0.00"
+            android:textSize="8dp"/>
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create trajectory"
+            android:id="@+id/btnCreateTrajectoryInfo" android:layout_gravity="center_horizontal"/>
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Process a GPS fix"
+            android:id="@+id/processFix" android:layout_gravity="center_horizontal"/>
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Process GPS fixes"
+            android:id="@+id/processFixes" android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stay points found"
+            android:id="@+id/textView" android:layout_gravity="center_horizontal" android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/editText" android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>
