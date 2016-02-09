@@ -1,16 +1,36 @@
 package tamps.cinvestav.s0lver.testingserverfromsmartphone.app;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends ActionBarActivity {
+
+    private Button btnCreateTrajectory;
+    private Button btnProcessFix;
+    private Button btnProcessFixes;
+    private Button btnLoadFixes;
+
+    private Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        assignGuiReferences();
+
+        this.presenter = new Presenter(this);
+    }
+
+    private void assignGuiReferences() {
+        this.btnLoadFixes = (Button) findViewById(R.id.btnLoad);
+        this.btnCreateTrajectory = (Button) findViewById(R.id.btnCreateTrajectoryInfo);
+        this.btnProcessFix = (Button) findViewById(R.id.btnProcessFix);
+        this.btnProcessFixes = (Button) findViewById(R.id.btnProcessFixes);
     }
 
     @Override
@@ -33,5 +53,21 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void clickOnLoadFixes(View view) {
+
+    }
+
+    public void clickOnCreateTrajectory(View view) {
+        presenter.createTrajectory();
+    }
+
+    public void clickOnProcessFix(View view) {
+
+    }
+
+    public void clickOnProcessFixes(View view) {
+
     }
 }

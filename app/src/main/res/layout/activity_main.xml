@@ -10,7 +10,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Load from file"
-            android:id="@+id/btnLoad" android:layout_gravity="center"/>
+            android:id="@+id/btnLoad" android:layout_gravity="center" android:onClick="clickOnLoadFixes"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,19 +23,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create trajectory"
-            android:id="@+id/btnCreateTrajectoryInfo" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/btnCreateTrajectoryInfo" android:layout_gravity="center_horizontal"
+            android:onClick="clickOnCreateTrajectory"/>
     <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Process a GPS fix"
-            android:id="@+id/processFix" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/btnProcessFix" android:layout_gravity="center_horizontal"
+            android:onClick="clickOnProcessFix"/>
     <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Process GPS fixes"
-            android:id="@+id/processFixes" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/btnProcessFixes" android:layout_gravity="center_horizontal"
+            android:onClick="clickOnProcessFixes"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
