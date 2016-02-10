@@ -6,13 +6,16 @@ import backgroundengine.accesoSensores.registros.RegistroUbicacion;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class SenderUbicacion {
     private MedioTransmision medioTransmision;
-
+    private SimpleDateFormat sdf;
     public SenderUbicacion(Context contexto, ListenerTransmision listenerTransmision, String UrlDestino, int tipoTransmisor) {
         instanciarMedioTransmision(contexto, UrlDestino, tipoTransmisor, listenerTransmision);
+        this.sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss",Locale.ENGLISH);
     }
 
     public void enviarUbicacion(RegistroUbicacion registroUbicacion) {
@@ -40,8 +43,7 @@ public class SenderUbicacion {
         parametros.add(new BasicNameValuePair("latitude", String.valueOf(registroUbicacion.getLatitud())));
         parametros.add(new BasicNameValuePair("longitude", String.valueOf(registroUbicacion.getLongitud())));
         parametros.add(new BasicNameValuePair("altitude", String.valueOf(registroUbicacion.getLongitud())));
-        parametros.add(new BasicNameValuePair(("timestamp"), String.valueOf(registroUbicacion.getTimestamp())));
-        Log.i("SenderUbicacion", String.valueOf(registroUbicacion.getTimestamp()));
+        parametros.add(new BasicNameValuePair(("timestamp"), sdf.format(registroUbicacion.getTimestamp())));
         return parametros;
     }
 

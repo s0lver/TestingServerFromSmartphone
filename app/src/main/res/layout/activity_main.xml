@@ -13,11 +13,12 @@
             android:id="@+id/btnLoad" android:layout_gravity="center" android:onClick="clickOnLoadFixes"/>
     <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="171dp"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/txtGpsFixes" android:layout_gravity="center_horizontal" android:layout_weight="0.00"
-            android:textSize="8dp"/>
+            android:scrollbars="vertical"
+            android:id="@+id/txtGpsFixes" android:layout_gravity="center_horizontal"
+            android:textSize="8dp" android:editable="false"/>
     <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -25,13 +26,13 @@
             android:text="Create trajectory"
             android:id="@+id/btnCreateTrajectoryInfo" android:layout_gravity="center_horizontal"
             android:onClick="clickOnCreateTrajectory"/>
-    <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Process a GPS fix"
-            android:id="@+id/btnProcessFix" android:layout_gravity="center_horizontal"
-            android:onClick="clickOnProcessFix"/>
+    <!--<Button-->
+            <!--style="?android:attr/buttonStyleSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Process a GPS fix"-->
+            <!--android:id="@+id/btnProcessFix" android:layout_gravity="center_horizontal"-->
+            <!--android:onClick="clickOnProcessFix"/>-->
     <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -50,6 +51,9 @@
             android:layout_height="match_parent"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/editText" android:layout_gravity="center_horizontal"/>
+            android:textSize="8dp" android:editable="false"
+            android:id="@+id/txtStayPointsFound" android:layout_gravity="center_horizontal"
+            android:scrollbars="vertical"
+    />
 
 </LinearLayout>

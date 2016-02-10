@@ -3,6 +3,7 @@ package tamps.cinvestav.s0lver.testingserverfromsmartphone.app;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
+import backgroundengine.accesoSensores.registros.RegistroUbicacion;
 import backgroundengine.staypoints.StayPoint;
 import backgroundengine.tx.ListenerTransmision;
 import backgroundengine.tx.MedioTransmision;
@@ -10,6 +11,7 @@ import backgroundengine.tx.SenderUbicacion;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -17,7 +19,7 @@ import java.util.Locale;
 public class Presenter {
     private MainActivity mainActivity;
     private SenderUbicacion locationSender;
-    private final String TARGET_URL = "http://148.247.204.124/local-poi/uploadFixMontoliou.php";
+    private final String TARGET_URL = "http://148.247.204.59/local-poi/uploadFixMontoliou.php";
 
     private final static String TRAJECTORY_CREATED = "trajOk";
     private final static String STAY_POINT_NOT_FOUND = "-1";
@@ -47,7 +49,11 @@ public class Presenter {
     }
 
     public void processFixes() {
-
+        ArrayList<RegistroUbicacion> gpsFixes = mainActivity.getGpsFixes();
+        for (RegistroUbicacion gpsFix : gpsFixes) {
+            locationSender.enviarUbicacion(gpsFix);
+        }
+        locationSender.enviarSolicitudUltimaParte();
     }
 
     private ListenerTransmision createTransmissionListener(){
@@ -61,6 +67,7 @@ public class Presenter {
                 } else {
                     try{
                         StayPoint stayPoint = translateResponseToStayPoint(response);
+                        mainActivity.updateStayPointsList(stayPoint);
                     } catch (ParseException e) {
                         e.printStackTrace();
                         Log.w(this.getClass().getSimpleName(), "I couldn't parse it as a stay point: " + response);

@@ -72,21 +72,16 @@ public abstract class MedioTransmision {
 
         @Override
         protected String doInBackground(NameValuePair... arregloParametros) {
-            Log.i(this.getClass().getSimpleName(), "before switching");
             switchTipoRed();
-            Log.i(this.getClass().getSimpleName(), "after switching");
             ArrayList<NameValuePair> parametros =
                     new ArrayList<NameValuePair>(Arrays.asList(arregloParametros));
             HttpClient clienteHttp = new DefaultHttpClient();
             HttpPost post = new HttpPost(String.valueOf(targetURL));
             post.setHeader("User-Agent", USER_AGENT);
-            Log.i(this.getClass().getSimpleName(), "I have " + parametros.size() + " parameters");
             try {
                 post.setEntity(new UrlEncodedFormEntity(parametros));
                 if (confirmarTipoRed()) {
-                    Log.i(this.getClass().getSimpleName(), "Network type confirmed");
                     if (activeNetwork.isConnected()) {
-                        Log.i(this.getClass().getSimpleName(), "Network is connected");
                         HttpResponse respuestaHttp = clienteHttp.execute(post);
                         int statusRespuesta = respuestaHttp.getStatusLine().getStatusCode();
                         Log.i(this.getClass().getSimpleName(), "Status respuesta: " + statusRespuesta);
