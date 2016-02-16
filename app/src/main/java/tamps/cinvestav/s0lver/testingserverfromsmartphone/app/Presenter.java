@@ -19,7 +19,7 @@ import java.util.Locale;
 public class Presenter {
     private MainActivity mainActivity;
     private SenderUbicacion locationSender;
-    private final String TARGET_URL = "http://148.247.204.59/local-poi/uploadFixMontoliou.php";
+    private final String TARGET_URL = "http://amsterdam.tamps.cinvestav.mx/~rperez/local-poi/uploadFixMontoliou.php";
 
     private final static String TRAJECTORY_CREATED = "trajOk";
     private final static String STAY_POINT_NOT_FOUND = "-1";
