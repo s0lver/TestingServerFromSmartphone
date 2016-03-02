@@ -90,7 +90,6 @@ public class MainActivity extends ActionBarActivity {
     public void clickOnLoadFixes(View view) {
         loadFixesFromFile();
         fillTxtGpsFixes();
-
     }
 
     private void fillTxtGpsFixes() {

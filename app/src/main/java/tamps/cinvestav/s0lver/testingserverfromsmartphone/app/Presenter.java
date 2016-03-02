@@ -41,7 +41,7 @@ public class Presenter {
 
     public void createTrajectory(){
         Log.i(this.getClass().getSimpleName(), "Before sending");
-        this.locationSender.enviarSolicitudCreacionTrayectoria(10 * ONE_MINUTE, 60 * ONE_MINUTE, 50);
+        this.locationSender.enviarSolicitudCreacionTrayectoria(10 * ONE_MINUTE, 60 * ONE_MINUTE, 150);
     }
 
     public void processFix() {
@@ -49,9 +49,17 @@ public class Presenter {
     }
 
     public void processFixes() {
+        int i = 1;
         ArrayList<RegistroUbicacion> gpsFixes = mainActivity.getGpsFixes();
         for (RegistroUbicacion gpsFix : gpsFixes) {
+            Log.i(this.getClass().getSimpleName(), "Sending location " + i);
+            i++;
             locationSender.enviarUbicacion(gpsFix);
+            try {
+                Thread.sleep(600);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         locationSender.enviarSolicitudUltimaParte();
     }

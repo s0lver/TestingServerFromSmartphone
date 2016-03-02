@@ -16,6 +16,8 @@ public class SenderUbicacion {
     public SenderUbicacion(Context contexto, ListenerTransmision listenerTransmision, String UrlDestino, int tipoTransmisor) {
         instanciarMedioTransmision(contexto, UrlDestino, tipoTransmisor, listenerTransmision);
         this.sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss",Locale.ENGLISH);
+//        System.setProperty("http.keepAlive", "false");
+
     }
 
     public void enviarUbicacion(RegistroUbicacion registroUbicacion) {

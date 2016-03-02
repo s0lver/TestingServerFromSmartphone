@@ -11,6 +11,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -64,7 +65,7 @@ public abstract class MedioTransmision {
         while ((line = br.readLine()) != null) {
             sb.append(line);
         }
-
+        br.close();
         return sb.toString();
     }
 
@@ -78,6 +79,7 @@ public abstract class MedioTransmision {
             HttpClient clienteHttp = new DefaultHttpClient();
             HttpPost post = new HttpPost(String.valueOf(targetURL));
             post.setHeader("User-Agent", USER_AGENT);
+            post.setHeader("Connection", "close");
             try {
                 post.setEntity(new UrlEncodedFormEntity(parametros));
                 if (confirmarTipoRed()) {
