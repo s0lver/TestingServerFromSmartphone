@@ -31,7 +31,7 @@ public class SmartphoneFixesFileReader{
                 fix = new RegistroUbicacion(
                         simpleDateFormat.parse(slices[TIMESTAMP]),
                         Double.valueOf(slices[LATITUDE]),
-                        Double.valueOf(slices[LONGITUDE]), 0, 0, 0, true);
+                        Double.valueOf(slices[LONGITUDE]), 0, 123, 0, true);
 
             } catch (ParseException e) {
                 e.printStackTrace();

@@ -45,6 +45,7 @@ public class SenderUbicacion {
         parametros.add(new BasicNameValuePair("latitude", String.valueOf(registroUbicacion.getLatitud())));
         parametros.add(new BasicNameValuePair("longitude", String.valueOf(registroUbicacion.getLongitud())));
         parametros.add(new BasicNameValuePair("altitude", String.valueOf(registroUbicacion.getLongitud())));
+        parametros.add(new BasicNameValuePair(("accuracy"), String.valueOf(registroUbicacion.getPrecision())));
         parametros.add(new BasicNameValuePair(("timestamp"), sdf.format(registroUbicacion.getTimestamp())));
         return parametros;
     }
